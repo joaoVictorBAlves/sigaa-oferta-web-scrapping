@@ -1,0 +1,2235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <title>SIGAA - Sistema Integrado de Gest&#227;o de Atividades Acad&#234;micas</title>
+    <link class="component"
+        href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf"
+        rel="stylesheet" type="text/css" />
+    <link class="component"
+        href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf"
+        media="rich-extended-skinning" rel="stylesheet" type="text/css" />
+    <script src="/sigaa/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.jsf" type="text/javascript"></script>
+    <script type="text/javascript">window.RICH_FACES_EXTENDED_SKINNING_ON = true;</script>
+    <script src="/sigaa/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.jsf"
+        type="text/javascript"></script>
+    <link rel="shortcut icon" href="/shared/img/brasao.ico">
+
+    <script type="text/javascript" src="/shared/jsBundles/jawr_loader.js"></script>
+    <script type="text/javascript">
+        JAWR.loader.style('/javascript/ext-2.0.a.1/resources/css/ext-all.css', 'all');
+        JAWR.loader.style('/css/public.css', 'all');
+        JAWR.loader.script('/bundles/js/sigaa_base.js');
+        JAWR.loader.script('/bundles/js/ext2_all.js');
+    </script>
+    <link rel="stylesheet" type="text/css" media="all" href="/sigaa/cssBundles/gzip_N1029051/public/css/public.css" />
+
+
+</head>
+
+<body>
+    <div id="container">
+
+
+        <div id="container-inner">
+
+
+
+            <div id="cabecalho">
+                <div id="logo">
+                    <a href="/sigaa/public/"> <img src="http://www.si3.ufc.br/shared/img/instituicao/brasao.png"
+                            alt="bras&#227;o" /> </a>
+                </div>
+                <div id="identificacao">
+                    <span class="ufrn"> Universidade Federal do Cear&#225; </span>
+                    <span class="data">
+                        Fortaleza,
+                        30 de Junho de
+                        2023
+                    </span>
+                    <a id="home" href="/sigaa/public/" title="P&#225;gina inicial"> </a>
+                    <div id="acesso">
+                        <ul>
+
+                            <li class="acesso_esq_bg"></li>
+                            <li class="acesso_centro_bg">
+                                <a href="http://www.si3.ufc.br" alt="Clique aqui para logar-se no SIGAA"
+                                    title="Clique aqui para logar-se no SIGAA">
+                                    Entrar no sistema
+                                </a>
+                            </li>
+                            <li class="acesso_dir_bg"></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <br clear="all" />
+            </div>
+
+
+            <div id="corpo">
+
+
+
+
+
+
+
+                <link href="/sigaa/css/ensino/busca_turma.css" rel="stylesheet" type="text/css" />
+                <link href="../css/busca_turma.css" rel="stylesheet" type="text/css" />
+                <link href="/shared/javascript/yui-ext/resources/css/resizable.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="/shared/javascript/public/turma_componentes.js"></script>
+                <style>
+                    table.listagem tr.agrupador {
+                        background: #C8D5EC;
+                        font-weight: bold;
+                        padding-left: 20px;
+                    }
+                </style>
+                <script>
+                    var marcar = function (idCheck) {
+                        $(idCheck).checked = true;
+                    }
+                </script>
+
+
+
+
+
+
+                <h2 class="title">Ensino > Consulta de Turmas</h2>
+
+
+
+                <div class="descricaoOperacao">
+                    Caro usu&#225;rio,
+                    <p>esta p&#225;gina permite consultar as turmas
+                        oferecidas pela institui&#231;&#227;o.</p>
+                    <p>Utilize o formul&#225;rio abaixo para filtrar as turmas de acordo com
+                        os crit&#233;rios desejados.</p>
+                </div>
+
+                <form id="formTurma" name="formTurma" method="post" action="/sigaa/public/turmas/listar.jsf"
+                    enctype="application/x-www-form-urlencoded">
+                    <input type="hidden" name="formTurma" value="formTurma" />
+
+                    <table class="formulario" width="80%">
+                        <caption>Informe os crit&#233;rios de busca das turmas</caption>
+                        <tbody>
+                            <tr>
+                                <th align="left" width="15%">N&#237;vel de Ensino:</th>
+                                <td colspan="2" align="left">
+                                    <select id="formTurma:inputNivel" name="formTurma:inputNivel" size="1"
+                                        onchange="A4J.AJAX.Submit('formTurma',event,{'similarityGroupingId':'formTurma:j_id_jsp_1410109113_5','parameters':{'formTurma:j_id_jsp_1410109113_5':'formTurma:j_id_jsp_1410109113_5'} ,'containerId':'j_id_jsp_1410109113_0'} )">
+                                        <option value=""> -- SELECIONE -- </option>
+                                        <option value="I">INFANTIL</option>
+                                        <option value="M">M&Eacute;DIO</option>
+                                        <option value="T">T&Eacute;CNICO</option>
+                                        <option value="F">FORMA&Ccedil;&Atilde;O COMPLEMENTAR</option>
+                                        <option value="G" selected="selected">GRADUA&Ccedil;&Atilde;O</option>
+                                        <option value="L">LATO SENSU - ESPECIALIZA&Ccedil;&Atilde;O</option>
+                                        <option value="R">LATO SENSU - RESID&Ecirc;NCIA</option>
+                                        <option value="S">STRICTO SENSU</option>
+                                        <option value="E">MESTRADO</option>
+                                        <option value="D">DOUTORADO</option>
+                                        <option value="X">EXTENS&Atilde;O</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th align="left">Unidade:</th>
+                                <td colspan="2" align="left">
+                                    <select id="formTurma:inputDepto" name="formTurma:inputDepto" size="1">
+                                        <option value="0" selected="selected"> -- SELECIONE -- </option>
+                                        <option value="10176">CENTRO DE TECNOLOGIA - DIRETORIA - FORTALEZA</option>
+                                        <option value="544">COORDENADORIA DE DESPORTO E LAZER - FORTALEZA</option>
+                                        <option value="713">COORDENA&Ccedil;&Atilde;O GERAL DAS CASAS DE CULTURA
+                                            ESTRANGEIRAS - FORTALEZA</option>
+                                        <option value="10154">Coordena&ccedil;&atilde;o de Ensino de
+                                            Gradua&ccedil;&atilde;o - FORTALEZA</option>
+                                        <option value="10174">DEPARTAMENTO DE ADMINISTRA&Ccedil;&Atilde;O (ESTUDOS
+                                            SOC-ECON) - FORTALEZA</option>
+                                        <option value="590">DEPARTAMENTO DE ADMINISTRA&Ccedil;&Atilde;O / FEAAC -
+                                            FORTALEZA</option>
+                                        <option value="629">DEPARTAMENTO DE AN&Aacute;LISES CLINICAS E TOXICOL -
+                                            FORTALEZA</option>
+                                        <option value="11186">DEPARTAMENTO DE ARQUITETURA E URBANISMO E DESIGN -
+                                            FORTALEZA</option>
+                                        <option value="729">DEPARTAMENTO DE BIOLOGIA - FORTALEZA</option>
+                                        <option value="730">DEPARTAMENTO DE BIOQU&Iacute;MICA E BIOLOGIA MOLECULAR -
+                                            FORTALEZA</option>
+                                        <option value="616">DEPARTAMENTO DE CIRURGIA - FORTALEZA</option>
+                                        <option value="820">DEPARTAMENTO DE CI&Ecirc;NCIAS DA INFORMA&Ccedil;&Atilde;O -
+                                            FORTALEZA</option>
+                                        <option value="648">DEPARTAMENTO DE CI&Ecirc;NCIAS DO SOLO - FORTALEZA</option>
+                                        <option value="822">DEPARTAMENTO DE CI&Ecirc;NCIAS SOCIAIS - FORTALEZA</option>
+                                        <option value="632">DEPARTAMENTO DE CLINICA ODONTOL&Oacute;GICA - FORTALEZA
+                                        </option>
+                                        <option value="724">DEPARTAMENTO DE COMPUTA&Ccedil;&Atilde;O - FORTALEZA
+                                        </option>
+                                        <option value="819">DEPARTAMENTO DE COMUNICA&Ccedil;&Atilde;O SOCIAL - FORTALEZA
+                                        </option>
+                                        <option value="591">DEPARTAMENTO DE CONTABILIDADE - FORTALEZA</option>
+                                        <option value="600">DEPARTAMENTO DE DIREITO PRIVADO - FORTALEZA</option>
+                                        <option value="599">DEPARTAMENTO DE DIREITO PROCESSUAL - FORTALEZA</option>
+                                        <option value="601">DEPARTAMENTO DE DIREITO P&Uacute;BLICO - FORTALEZA</option>
+                                        <option value="645">DEPARTAMENTO DE ECONOMIA AGR&Iacute;COLA - FORTALEZA
+                                        </option>
+                                        <option value="589">DEPARTAMENTO DE ECONOMIA APLICADA - FORTALEZA</option>
+                                        <option value="633">DEPARTAMENTO DE ENFERMAGEM - FORTALEZA</option>
+                                        <option value="649">DEPARTAMENTO DE ENGENHARIA AGR&Iacute;COLA - FORTALEZA
+                                        </option>
+                                        <option value="10960">DEPARTAMENTO DE ENGENHARIA DE ALIMENTOS - FORTALEZA
+                                        </option>
+                                        <option value="644">DEPARTAMENTO DE ENGENHARIA DE PESCA - FORTALEZA</option>
+                                        <option value="10414">DEPARTAMENTO DE ENGENHARIA DE PRODU&Ccedil;&Atilde;O -
+                                            FORTALEZA</option>
+                                        <option value="765">DEPARTAMENTO DE ENGENHARIA DE TELEINFORM&Aacute;TICA -
+                                            FORTALEZA</option>
+                                        <option value="665">DEPARTAMENTO DE ENGENHARIA DE TRANSPORTES - FORTALEZA
+                                        </option>
+                                        <option value="669">DEPARTAMENTO DE ENGENHARIA EL&Eacute;TRICA - FORTALEZA
+                                        </option>
+                                        <option value="666">DEPARTAMENTO DE ENGENHARIA HIDR&Aacute;ULICA E AMBIENTAL -
+                                            FORTALEZA</option>
+                                        <option value="10415">DEPARTAMENTO DE ENGENHARIA MEC&Acirc;NICA - FORTALEZA
+                                        </option>
+                                        <option value="667">DEPARTAMENTO DE ENGENHARIA MEC&Acirc;NICA E DE
+                                            PRODU&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="836">DEPARTAMENTO DE ENGENHARIA METAL&Uacute;RGICA E DE MATERIAIS
+                                            - FORTALEZA</option>
+                                        <option value="668">DEPARTAMENTO DE ENGENHARIA QU&Iacute;MICA - FORTALEZA
+                                        </option>
+                                        <option value="726">DEPARTAMENTO DE ESTAT&Iacute;STICA E MATEM&Aacute;TICA
+                                            APLICADA - FORTALEZA</option>
+                                        <option value="10840">DEPARTAMENTO DE ESTUDOS DA L&Iacute;NGUA INGLESA, SUAS
+                                            LITERATURAS E TRADU&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="582">DEPARTAMENTO DE ESTUDOS ESPECIALIZADOS - FORTALEZA</option>
+                                        <option value="11192">DEPARTAMENTO DE ESTUDOS INTERDISCIPLINARES - FORTALEZA
+                                        </option>
+                                        <option value="630">DEPARTAMENTO DE FARM&Aacute;CIA - FORTALEZA</option>
+                                        <option value="821">DEPARTAMENTO DE FILOSOFIA - FORTALEZA</option>
+                                        <option value="620">DEPARTAMENTO DE FISIOLOGIA E FARMACOLOGIA - FORTALEZA
+                                        </option>
+                                        <option value="10754">DEPARTAMENTO DE FISIOTERAPIA - FORTALEZA</option>
+                                        <option value="642">DEPARTAMENTO DE FITOTECNIA - FORTALEZA</option>
+                                        <option value="580">DEPARTAMENTO DE FUNDAMENTOS DA EDUCA&Ccedil;&Atilde;O -
+                                            FORTALEZA</option>
+                                        <option value="728">DEPARTAMENTO DE F&Iacute;SICA - FORTALEZA</option>
+                                        <option value="733">DEPARTAMENTO DE GEOGRAFIA - FORTALEZA</option>
+                                        <option value="727">DEPARTAMENTO DE GEOLOGIA - FORTALEZA</option>
+                                        <option value="704">DEPARTAMENTO DE HIST&Oacute;RIA - FORTALEZA</option>
+                                        <option value="11138">DEPARTAMENTO DE INTEGRA&Ccedil;&Atilde;O ACAD&Ecirc;MICA E
+                                            TECNOL&Oacute;GICA - FORTALEZA</option>
+                                        <option value="699">DEPARTAMENTO DE LETRAS ESTRANGEIRAS - FORTALEZA</option>
+                                        <option value="10485">DEPARTAMENTO DE LETRAS LIBRAS E ESTUDOS SURDOS - FORTALEZA
+                                        </option>
+                                        <option value="698">DEPARTAMENTO DE LETRAS VERN&Aacute;CULAS - FORTALEZA
+                                        </option>
+                                        <option value="703">DEPARTAMENTO DE LITERATURA - FORTALEZA</option>
+                                        <option value="725">DEPARTAMENTO DE MATEM&Aacute;TICA - FORTALEZA</option>
+                                        <option value="610">DEPARTAMENTO DE MEDICINA CLINICA - FORTALEZA</option>
+                                        <option value="619">DEPARTAMENTO DE MORFOLOGIA - FORTALEZA</option>
+                                        <option value="631">DEPARTAMENTO DE ODONTOLOGIA RESTAURADORA - FORTALEZA
+                                        </option>
+                                        <option value="612">DEPARTAMENTO DE PATOLOGIA E MEDICINA LEGAL - FORTALEZA
+                                        </option>
+                                        <option value="702">DEPARTAMENTO DE PSICOLOGIA - FORTALEZA</option>
+                                        <option value="731">DEPARTAMENTO DE QU&Iacute;MICA ANAL&Iacute;TICA E
+                                            F&Iacute;SICO-QU&Iacute;MICA - FORTALEZA</option>
+                                        <option value="732">DEPARTAMENTO DE QU&Iacute;MICA ORG&Acirc;NICA E
+                                            INORG&Acirc;NICA - FORTALEZA</option>
+                                        <option value="614">DEPARTAMENTO DE SA&Uacute;DE COMUNIT&Aacute;RIA - FORTALEZA
+                                        </option>
+                                        <option value="11187">DEPARTAMENTO DE SA&Uacute;DE DA MULHER, DA CRIANCA E DO
+                                            ADOLESCENTE - FORTALEZA</option>
+                                        <option value="622">DEPARTAMENTO DE SA&Uacute;DE MATERNO INFANTIL - FORTALEZA
+                                        </option>
+                                        <option value="581">DEPARTAMENTO DE TEORIA E PRATICA DO ENSINO - FORTALEZA
+                                        </option>
+                                        <option value="588">DEPARTAMENTO DE TEORIA ECONOMIA - FORTALEZA</option>
+                                        <option value="643">DEPARTAMENTO DE ZOOTECNIA - FORTALEZA</option>
+                                        <option value="664">DEPARTAMENTO ENGENHARIA ESTRUTURAL E
+                                            CONSTRU&Ccedil;&Atilde;O CIVIL - FORTALEZA</option>
+                                        <option value="647">Departamento de Tecnologia de Alimentos - FORTALEZA</option>
+                                        <option value="10006">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ADMINISTRA&Ccedil;&Atilde;O E CONTROLADORIA - FORTALEZA</option>
+                                        <option value="10010">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            AGRONOMIA (FITOTECNIA) - FORTALEZA</option>
+                                        <option value="10104">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            AGRONOMIA (IRRIGA&Ccedil;&Atilde;O E DRENAGEM) - FORTALEZA</option>
+                                        <option value="10963">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ANTROPOLOGIA (UFC/UNILAB) - FORTALEZA</option>
+                                        <option value="10628">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ARQUITETURA E URBANISMO E DESIGN - FORTALEZA</option>
+                                        <option value="10250">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ARTES -
+                                            FORTALEZA</option>
+                                        <option value="10780">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            AVALIA&Ccedil;&Atilde;O DE POL&Iacute;TICAS P&Uacute;BLICAS - FORTALEZA
+                                        </option>
+                                        <option value="10007">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            BIOQU&Iacute;MICA - FORTALEZA</option>
+                                        <option value="10091">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            BIOTECNOLOGIA (RENORBIO) - FORTALEZA</option>
+                                        <option value="10008">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            BIOTECNOLOGIA - SOBRAL</option>
+                                        <option value="10370">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            BIOTECNOLOGIA DE RECURSOS NATURAIS - FORTALEZA</option>
+                                        <option value="10779">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIA DA INFORMA&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="10084">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIA DO SOLO - FORTALEZA</option>
+                                        <option value="10015">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIA E TECNOLOGIA DE ALIMENTOS - FORTALEZA</option>
+                                        <option value="11248">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS CARDIOVASCULARES - FORTALEZA</option>
+                                        <option value="10020">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS DA COMPUTA&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="10251">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS DA SA&Uacute;DE - FORTALEZA</option>
+                                        <option value="10098">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS FARMAC&Ecirc;UTICAS (DESCREDENCIADO) - FORTALEZA</option>
+                                        <option value="10096">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS FARMAC&Ecirc;UTICAS - FORTALEZA</option>
+                                        <option value="10011">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS MARINHAS TROPICAIS - FORTALEZA</option>
+                                        <option value="10547">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS MORFOFUNCIONAIS - FORTALEZA</option>
+                                        <option value="10012">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS M&Eacute;DICAS - FORTALEZA</option>
+                                        <option value="11220">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            CI&Ecirc;NCIAS M&Eacute;DICO-CIR&Uacute;RGICAS - FORTALEZA</option>
+                                        <option value="11244">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            COMPUTA&Ccedil;&Atilde;O - QUIXAD&Aacute;</option>
+                                        <option value="10017">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            COMUNICA&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="10125">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            DESENVOLVIMENTEO REGIONAL SUSTENT&Aacute;VEL - FORTALEZA</option>
+                                        <option value="10101">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            DESENVOLVIMENTO E INOVA&Ccedil;&Atilde;O TECNOL&Oacute;GICA EM MEDICAMENTOS
+                                            - FORTALEZA</option>
+                                        <option value="10092">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            DESENVOLVIMENTO E MEIO AMBIENTE (UFPI/UFRN/FUFSE/ESC-BA) - FORTALEZA
+                                        </option>
+                                        <option value="10014">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            DESENVOLVIMENTO E MEIO AMBIENTE - FORTALEZA</option>
+                                        <option value="11217">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM DIREITO
+                                            - FORTALEZA</option>
+                                        <option value="10018">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM DIREITO
+                                            - FORTALEZA</option>
+                                        <option value="10016">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ECOLOGIA
+                                            E RECURSOS NATURAIS - FORTALEZA</option>
+                                        <option value="10019">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ECONOMIA
+                                            - FORTALEZA</option>
+                                        <option value="10021">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ECONOMIA
+                                            RURAL - FORTALEZA</option>
+                                        <option value="10105">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            EDUCA&Ccedil;&Atilde;O (DESATIVADO) - FORTALEZA</option>
+                                        <option value="10056">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            EDUCA&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="10057">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENFERMAGEM - FORTALEZA</option>
+                                        <option value="10395">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA AGR&Iacute;COLA - FORTALEZA</option>
+                                        <option value="10106">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA CIVIL (EDIFICA&Ccedil;&Otilde;ES) - FORTALEZA</option>
+                                        <option value="10085">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA CIVIL (ESTRUTURAS E CONSTRU&Ccedil;&Atilde;O CIVIL) - FORTALEZA
+                                        </option>
+                                        <option value="10023">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA CIVIL (RECURSOS H&Iacute;DRICOS) - FORTALEZA</option>
+                                        <option value="10027">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA DE PESCA - FORTALEZA</option>
+                                        <option value="11230">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA DE TELEINFORM&Aacute;TICA - FORTALEZA</option>
+                                        <option value="10029">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA DE TELEINFORM&Aacute;TICA - FORTALEZA</option>
+                                        <option value="10034">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA DE TRANSPORTES - FORTALEZA</option>
+                                        <option value="10036">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA E CI&Ecirc;NCIA DE MATERIAIS - FORTALEZA</option>
+                                        <option value="10369">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA ELETRICA E DE COMPUTA&Ccedil;&Atilde;O - SOBRAL</option>
+                                        <option value="10038">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA EL&Eacute;TRICA - FORTALEZA</option>
+                                        <option value="10110">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA EL&Eacute;TRICA - FORTALEZA</option>
+                                        <option value="10040">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA MECANICA - FORTALEZA</option>
+                                        <option value="11229">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA QU&Iacute;MICA - FORTALEZA</option>
+                                        <option value="10041">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ENGENHARIA QU&Iacute;MICA - FORTALEZA</option>
+                                        <option value="11211">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ENSINO
+                                            DE CI&Ecirc;NCIAS E MATEM&Aacute;TICA (REDE) - FORTALEZA</option>
+                                        <option value="10601">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ENSINO
+                                            DE F&Iacute;SICA - FORTALEZA</option>
+                                        <option value="11300">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ENSINO
+                                            DE HIST&Oacute;RIA (MEST PROF REDE NACIONAL) - FORTALEZA</option>
+                                        <option value="10560">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM ESTUDOS
+                                            DA TRADU&Ccedil;&Atilde;O - FORTALEZA</option>
+                                        <option value="11221">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            FARMACOLOGIA - FORTALEZA</option>
+                                        <option value="10025">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            FARMACOLOGIA - FORTALEZA</option>
+                                        <option value="10026">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            FILOSOFIA - FORTALEZA</option>
+                                        <option value="11257">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            FISIOTERAPIA E FUNCIONALIDADE - FORTALEZA</option>
+                                        <option value="10004">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            F&Iacute;SICA - FORTALEZA</option>
+                                        <option value="11307">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            GASTRONOMIA - FORTALEZA</option>
+                                        <option value="10028">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            GEOGRAFIA - FORTALEZA</option>
+                                        <option value="10030">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM GEOLOGIA
+                                            - FORTALEZA</option>
+                                        <option value="10126">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            GEST&Atilde;O DE RECURSOS HIDRICOS - FORTALEZA</option>
+                                        <option value="10031">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            HIST&Oacute;RIA - FORTALEZA</option>
+                                        <option value="10032">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM LETRAS -
+                                            FORTALEZA</option>
+                                        <option value="11232">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            LINGU&Iacute;STICA - FORTALEZA</option>
+                                        <option value="10035">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            LOG&Iacute;STICA E PESQUISA OPERACIONAL - FORTALEZA</option>
+                                        <option value="10627">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            MATEM&Aacute;TICA (PROFISSIONAL - REDE NACIONAL - CARIRI) - JUAZEIRO DO
+                                            NORTE</option>
+                                        <option value="10157">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            MATEM&Aacute;TICA (PROFISSIONAL - REDE NACIONAL - FORTALEZA) - FORTALEZA
+                                        </option>
+                                        <option value="10061">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            MATEM&Aacute;TICA - FORTALEZA</option>
+                                        <option value="10090">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM MEDICINA
+                                            - FORTALEZA</option>
+                                        <option value="11301">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM MEDICINA
+                                            TRANSLACIONAL - FORTALEZA</option>
+                                        <option value="10039">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            MICROBIOLOGIA M&Eacute;DICA - FORTALEZA</option>
+                                        <option value="10777">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            MODELAGEM E M&Eacute;TODOS QUANTITATIVOS - FORTALEZA</option>
+                                        <option value="864">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ODONTOLOGIA - FORTALEZA</option>
+                                        <option value="10044">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ODONTOLOGIA - FORTALEZA</option>
+                                        <option value="10046">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            PATOLOGIA - FORTALEZA</option>
+                                        <option value="11212">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            POL&Iacute;TICAS P&Uacute;BLICAS E GEST&Atilde;O DA EDUCACAO SUPERIOR -
+                                            FORTALEZA</option>
+                                        <option value="10049">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            POL&Iacute;TICAS P&Uacute;BLICAS E GEST&Atilde;O DA EDUCA&Ccedil;&Atilde;O
+                                            SUPERIOR - FORTALEZA</option>
+                                        <option value="10051">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            PSICOLOGIA - FORTALEZA</option>
+                                        <option value="10053">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            QU&Iacute;MICA - FORTALEZA</option>
+                                        <option value="10107">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            QU&Iacute;MICA INORG&Acirc;NICA - FORTALEZA</option>
+                                        <option value="10108">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            QU&Iacute;MICA ORG&Acirc;NICA - FORTALEZA</option>
+                                        <option value="10050">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SA&Uacute;DE COLETIVA (UECE/UFC) - FORTALEZA</option>
+                                        <option value="10093">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SA&Uacute;DE DA FAM&Iacute;LIA - SOBRAL</option>
+                                        <option value="10202">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SA&Uacute;DE DA FAM&Iacute;LIA(PROFISSIONAL - FIOCRUZ) - FORTALEZA</option>
+                                        <option value="10778">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SA&Uacute;DE DA MULHER E DA CRIAN&Ccedil;A (PROFISSIONAL) - FORTALEZA
+                                        </option>
+                                        <option value="10094">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SA&Uacute;DE MATERNO-INFANTIL - FORTALEZA</option>
+                                        <option value="10052">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SA&Uacute;DE P&Uacute;BLICA - FORTALEZA</option>
+                                        <option value="11210">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SISTEM&Aacute;TICA, USO E CONSERVA&Ccedil;&Atilde;O DA BIODIVERSIDADE -
+                                            FORTALEZA</option>
+                                        <option value="11235">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SOCIOLOGIA - FORTALEZA</option>
+                                        <option value="10054">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            SOCIOLOGIA - FORTALEZA</option>
+                                        <option value="10097">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O E COMUNICA&Ccedil;&Atilde;O NA
+                                            FORMA&Ccedil;&Atilde;O EM EAD - FORTALEZA</option>
+                                        <option value="10109">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            TECNOLOGIA DE ALIMENTOS - FORTALEZA</option>
+                                        <option value="10095">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            TOCO-GINECOLOGIA - FORTALEZA</option>
+                                        <option value="10100">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ZOOTECNIA (PDIZ) - FORTALEZA</option>
+                                        <option value="10055">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O EM
+                                            ZOOTECNIA - FORTALEZA</option>
+                                        <option value="10102">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM ADMINISTRA&Ccedil;&Atilde;O DE EMPRESAS - FORTALEZA</option>
+                                        <option value="10086">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM ADMINISTRA&Ccedil;&Atilde;O E CONTROLADORIA - FORTALEZA
+                                        </option>
+                                        <option value="10483">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM ARTES - FORTALEZA</option>
+                                        <option value="10005">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM AVALIA&Ccedil;&Atilde;O DE POLITICAS P&Uacute;BLICAS -
+                                            FORTALEZA</option>
+                                        <option value="10784">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM BIBLIOTECONOMIA - JUAZEIRO DO NORTE</option>
+                                        <option value="10103">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM CONTROLADORIA - FORTALEZA</option>
+                                        <option value="10087">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM ECONOMIA - FORTALEZA</option>
+                                        <option value="11350">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM EDUCA&Ccedil;&Atilde;O F&Iacute;SICA EM REDE NACIONAL -
+                                            FORTALEZA</option>
+                                        <option value="10022">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM ENSINO DE CI&Ecirc;NCIAS E MATEM&Aacute;TICA - FORTALEZA
+                                        </option>
+                                        <option value="10089">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM FARMACOLOGIA - FORTALEZA</option>
+                                        <option value="10865">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM FILOSOFIA - FORTALEZA</option>
+                                        <option value="11231">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM LETRAS - FORTALEZA</option>
+                                        <option value="11255">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM PSICOLOGIA E POL&Iacute;TICAS P&Uacute;BLICAS - SOBRAL
+                                        </option>
+                                        <option value="10856">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM SA&Uacute;DE DA MULHER E DA CRIAN&Ccedil;A - FORTALEZA
+                                        </option>
+                                        <option value="10930">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM SOCIOLOGIA - FORTALEZA</option>
+                                        <option value="11302">PROGRAMA DE P&Oacute;S-GRADUA&Ccedil;&Atilde;O
+                                            PROFISSIONAL EM TECNOLOGIA EDUCACIONAL - FORTALEZA</option>
+                                        <option value="10792">PROGRAMA DE P&Oacute;S-GRADU&Ccedil;&Atilde;O
+                                            MULTICENTRICO EM BIOQU&Iacute;MICA E BIOLOGIA MOLECULAR - JUAZEIRO DO NORTE
+                                        </option>
+                                        <option value="481">PR&Oacute; - REITORIA DE GRADUA&Ccedil;&Atilde;O - FORTALEZA
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th align="left">Ofertadas ao curso:</th>
+                                <td colspan="2" align="left" width="100%"><select id="formTurma:selectCurso"
+                                        name="formTurma:selectCurso" size="1" style="width: 100%;">
+                                        <option value="0">-- SELECIONE --</option>
+                                        <option value="657446">ADMINISTRA&Ccedil;&Atilde;O (DIURNO)/FEAAC - FORTALEZA
+                                        </option>
+                                        <option value="657452">ADMINISTRA&Ccedil;&Atilde;O (NOTURNO)/FEAAC - FORTALEZA
+                                        </option>
+                                        <option value="657524">ADMINISTRA&Ccedil;&Atilde;O PUBLICA/CUFCCARIRI - JUAZEIRO
+                                            DO NORTE</option>
+                                        <option value="6491865">ADMINISTRA&Ccedil;&Atilde;O P&Uacute;BLICA/IUVI -
+                                            FORTALEZA</option>
+                                        <option value="657488">ADMINISTRA&Ccedil;&Atilde;O/CUFCCARIRI - JUAZEIRO DO
+                                            NORTE</option>
+                                        <option value="6491862">ADMINISTRA&Ccedil;&Atilde;O/IUVI - FORTALEZA</option>
+                                        <option value="657420">AGRONOMIA/CCA - FORTALEZA</option>
+                                        <option value="657489">AGRONOMIA/CUFCCARIRI - JUAZEIRO DO NORTE</option>
+                                        <option value="72461781">AN&Aacute;LISE E DESENVOLVIMENTO DE SISTEMAS/CITAPAJE -
+                                            ITAPAJ&Eacute;</option>
+                                        <option value="657473">ARQUITETURA E URBANISMO/CT - FORTALEZA</option>
+                                        <option value="5707016">BACHARELADO EM DESIGN/CUFCCARIRI - JUAZEIRO DO NORTE
+                                        </option>
+                                        <option value="657457">BIBLIOTECONOMIA/CH - FORTALEZA</option>
+                                        <option value="657490">BIBLIOTECONOMIA/CUFCCARIRI - JUAZEIRO DO NORTE</option>
+                                        <option value="657502">BIOTECNOLOGIA/CC - FORTALEZA</option>
+                                        <option value="657504">CINEMA E AUDIOVISUAL/ICA - FORTALEZA</option>
+                                        <option value="1912104">CI&Ecirc;NCIA DA COMPUTA&Ccedil;&Atilde;O/CAMPRUSSAS -
+                                            RUSSAS</option>
+                                        <option value="3325058">CI&Ecirc;NCIA DA COMPUTA&Ccedil;&Atilde;O/CC - FORTALEZA
+                                        </option>
+                                        <option value="1878933">CI&Ecirc;NCIA DA COMPUTA&Ccedil;&Atilde;O/CCRATEUS -
+                                            CRATE&Uacute;S</option>
+                                        <option value="1371512">CI&Ecirc;NCIA DA COMPUTA&Ccedil;&Atilde;O/DIRQUIXADA -
+                                            QUIXAD&Aacute;</option>
+                                        <option value="72460878">CI&Ecirc;NCIA DE DADOS/CITAPAJE - ITAPAJ&Eacute;
+                                        </option>
+                                        <option value="657503">CI&Ecirc;NCIAS AMBIENTAIS/LABOMAR - FORTALEZA</option>
+                                        <option value="657451">CI&Ecirc;NCIAS ATUARIAIS/FEAAC - FORTALEZA</option>
+                                        <option value="657427">CI&Ecirc;NCIAS BIOL&Oacute;GICAS/CC - FORTALEZA</option>
+                                        <option value="3326818">CI&Ecirc;NCIAS BIOL&Oacute;GICAS/CC - FORTALEZA</option>
+                                        <option value="657450">CI&Ecirc;NCIAS CONT&Aacute;BEIS (DIURNO)/FEAAC -
+                                            FORTALEZA</option>
+                                        <option value="657447">CI&Ecirc;NCIAS CONT&Aacute;BEIS (NOTURNO)/FEAAC -
+                                            FORTALEZA</option>
+                                        <option value="657448">CI&Ecirc;NCIAS ECON&Ocirc;MICAS (DIURNO)/FEAAC -
+                                            FORTALEZA</option>
+                                        <option value="657449">CI&Ecirc;NCIAS ECON&Ocirc;MICAS (NOTURNO)/FEAAC -
+                                            FORTALEZA</option>
+                                        <option value="657483">CI&Ecirc;NCIAS ECON&Ocirc;MICAS/CUFCSOBRAL - SOBRAL
+                                        </option>
+                                        <option value="657458">CI&Ecirc;NCIAS SOCIAIS (DIURNO)/CH - FORTALEZA</option>
+                                        <option value="657499">CI&Ecirc;NCIAS SOCIAIS (NOTURNO)/CH - FORTALEZA</option>
+                                        <option value="657442">COMPUTA&Ccedil;&Atilde;O/CC - FORTALEZA</option>
+                                        <option value="657518">COMUNICA&Ccedil;&Atilde;O SOCIAL - JORNALISMO DA
+                                            TERRA/ICA - FORTALEZA</option>
+                                        <option value="657510">COMUNICA&Ccedil;&Atilde;O SOCIAL - JORNALISMO/CUFCCARIRI
+                                            - JUAZEIRO DO NORTE</option>
+                                        <option value="657526">COMUNICA&Ccedil;&Atilde;O SOCIAL - JORNALISMO/ICA -
+                                            FORTALEZA</option>
+                                        <option value="657527">COMUNICA&Ccedil;&Atilde;O SOCIAL - PUBLICIDADE E
+                                            PROPAGANDA/ICA - FORTALEZA</option>
+                                        <option value="657459">COMUNICA&Ccedil;&Atilde;O SOCIAL/ICA - FORTALEZA</option>
+                                        <option value="657520">DAN&Ccedil;A - BACHARELADO/ICA - FORTALEZA</option>
+                                        <option value="657521">DAN&Ccedil;A - LICENCIATURA/ICA - FORTALEZA</option>
+                                        <option value="657525">DESIGN - MODA/ICA - FORTALEZA</option>
+                                        <option value="657511">DESIGN DE PRODUTO/CUFCCARIRI - JUAZEIRO DO NORTE</option>
+                                        <option value="2112172">DESIGN DIGITAL/DIRQUIXADA - QUIXAD&Aacute;</option>
+                                        <option value="1021532">DESIGN/CT - FORTALEZA</option>
+                                        <option value="657444">DIREITO (DIURNO)/FACDIR - FORTALEZA</option>
+                                        <option value="657443">DIREITO (NOTURNO)/FACDIR - FORTALEZA</option>
+                                        <option value="657421">ECONOMIA DOM&Eacute;STICA/CCA - FORTALEZA</option>
+                                        <option value="2683037">ECONOMIA ECOL&Oacute;GICA/CCA - FORTALEZA</option>
+                                        <option value="657464">EDUCACAO FISICA/IEFES - FORTALEZA</option>
+                                        <option value="657467">EDUCACAO F&Iacute;SICA - BACHARELADO (DIURNO)/IEFES -
+                                            FORTALEZA</option>
+                                        <option value="657466">EDUCACAO F&Iacute;SICA - LICENCIATURA (DIURNO)/IEFES -
+                                            FORTALEZA</option>
+                                        <option value="1371289">EDUCA&Ccedil;&Atilde;O F&Iacute;SICA - BACHARELADO
+                                            (VESPERTINO-NOTURNO)/IEFES - FORTALEZA</option>
+                                        <option value="1371359">EDUCA&Ccedil;&Atilde;O F&Iacute;SICA - LICENCIATURA
+                                            (VESPERTINO-NOTURNO)/IEFES - FORTALEZA</option>
+                                        <option value="657454">ENFERMAGEM/FFOE - FORTALEZA</option>
+                                        <option value="71172498">ENGENHARIA AMBIENTAL E SANIT&Aacute;RIA/CCRATEUS -
+                                            CRATE&Uacute;S</option>
+                                        <option value="2097265">ENGENHARIA AMBIENTAL/CCRATEUS - CRATE&Uacute;S</option>
+                                        <option value="2097288">ENGENHARIA CIVIL/CAMPRUSSAS - RUSSAS</option>
+                                        <option value="2097286">ENGENHARIA CIVIL/CCRATEUS - CRATE&Uacute;S</option>
+                                        <option value="657474">ENGENHARIA CIVIL/CT - FORTALEZA</option>
+                                        <option value="657491">ENGENHARIA CIVIL/CUFCCARIRI - JUAZEIRO DO NORTE</option>
+                                        <option value="657424">ENGENHARIA DE ALIMENTOS/CCA - FORTALEZA</option>
+                                        <option value="2103424">ENGENHARIA DE COMPUTA&Ccedil;&Atilde;O/CT - FORTALEZA
+                                        </option>
+                                        <option value="657484">ENGENHARIA DE COMPUTA&Ccedil;&Atilde;O/CUFCSOBRAL -
+                                            SOBRAL</option>
+                                        <option value="2106185">ENGENHARIA DE COMPUTA&Ccedil;&Atilde;O/DIRQUIXADA -
+                                            QUIXAD&Aacute;</option>
+                                        <option value="657517">ENGENHARIA DE ENERGIAS E MEIO AMBIENTE/CT - FORTALEZA
+                                        </option>
+                                        <option value="657513">ENGENHARIA DE MATERIAIS/CUFCCARIRI - JUAZEIRO DO NORTE
+                                        </option>
+                                        <option value="2118717">ENGENHARIA DE MINAS/CCRATEUS - CRATE&Uacute;S</option>
+                                        <option value="657423">ENGENHARIA DE PESCA/CCA - FORTALEZA</option>
+                                        <option value="657479">ENGENHARIA DE PRODU&Ccedil;&Atilde;O MEC&Acirc;NICA/CT -
+                                            FORTALEZA</option>
+                                        <option value="2097200">ENGENHARIA DE PRODU&Ccedil;&Atilde;O/CAMPRUSSAS - RUSSAS
+                                        </option>
+                                        <option value="74365941">ENGENHARIA DE PRODU&Ccedil;&Atilde;O/CT - FORTALEZA
+                                        </option>
+                                        <option value="1878932">ENGENHARIA DE SOFTWARE/CAMPRUSSAS - RUSSAS</option>
+                                        <option value="657515">ENGENHARIA DE SOFTWARE/DIRQUIXADA - QUIXAD&Aacute;
+                                        </option>
+                                        <option value="1994679">ENGENHARIA DE TELECOMUNICA&Ccedil;&Otilde;ES/CT -
+                                            FORTALEZA</option>
+                                        <option value="657480">ENGENHARIA DE TELEINFORM&Aacute;TICA (DIURNO)/CT -
+                                            FORTALEZA</option>
+                                        <option value="657498">ENGENHARIA DE TELEINFORM&Aacute;TICA (NOTURNO)/CT -
+                                            FORTALEZA</option>
+                                        <option value="657475">ENGENHARIA EL&Eacute;TRICA/CT - FORTALEZA</option>
+                                        <option value="657485">ENGENHARIA EL&Eacute;TRICA/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="2097267">ENGENHARIA MEC&Acirc;NICA/CAMPRUSSAS - RUSSAS</option>
+                                        <option value="657476">ENGENHARIA MEC&Acirc;NICA/CT - FORTALEZA</option>
+                                        <option value="657477">ENGENHARIA METAL&Uacute;RGICA/CT - FORTALEZA</option>
+                                        <option value="657478">ENGENHARIA QU&Iacute;MICA/CT - FORTALEZA</option>
+                                        <option value="657428">ESTAT&Iacute;STICA/CC - FORTALEZA</option>
+                                        <option value="657422">ESTILISMO E MODA/ICA - FORTALEZA</option>
+                                        <option value="657455">FARM&Aacute;CIA/FFOE - FORTALEZA</option>
+                                        <option value="657492">FILOSOFIA/CUFCCARIRI - JUAZEIRO DO NORTE</option>
+                                        <option value="657463">FILOSOFIA/ICA - FORTALEZA</option>
+                                        <option value="657514">FINAN&Ccedil;AS/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="1064892">FINAN&Ccedil;AS/FEAAC - FORTALEZA</option>
+                                        <option value="657505">FISIOTERAPIA/FACMED - FORTALEZA</option>
+                                        <option value="657435">F&Iacute;SICA - BACHARELADO/CC - FORTALEZA</option>
+                                        <option value="657429">F&Iacute;SICA - LICENCIATURA/CC - FORTALEZA</option>
+                                        <option value="657430">F&Iacute;SICA/CC - FORTALEZA</option>
+                                        <option value="6491866">F&Iacute;SICA/IUVI - FORTALEZA</option>
+                                        <option value="657506">GASTRONOMIA/ICA - FORTALEZA</option>
+                                        <option value="657432">GEOGRAFIA/CC - FORTALEZA</option>
+                                        <option value="657431">GEOLOGIA/CC - FORTALEZA</option>
+                                        <option value="2168903">GEST&Atilde;O DE POL&Iacute;TICAS P&Uacute;BLICAS/CCA -
+                                            FORTALEZA</option>
+                                        <option value="1883790">HISTORIA/CUFCCARIRI - IC&Oacute;</option>
+                                        <option value="657460">HIST&Oacute;RIA/CH - FORTALEZA</option>
+                                        <option value="2928774">INTERDISCIPLINAR EM CI&Ecirc;NCIAS NATURAIS E
+                                            MATEM&Aacute;TICA/CUFCCARIRI - BREJO SANTO</option>
+                                        <option value="1904932">INTERDISCIPLINAR EM CI&Ecirc;NCIAS NATURAIS/CUFCCARIRI -
+                                            BREJO SANTO</option>
+                                        <option value="71171931">JORNALISMO/ICA - FORTALEZA</option>
+                                        <option value="657507">LETRAS - ESPANHOL/CH - FORTALEZA</option>
+                                        <option value="6491870">LETRAS - ESPANHOL/IUVI - FORTALEZA</option>
+                                        <option value="657508">LETRAS - INGL&Ecirc;S/CH - FORTALEZA</option>
+                                        <option value="6491867">LETRAS - INGL&Ecirc;S/IUVI - FORTALEZA</option>
+                                        <option value="1371493">LETRAS - LIBRAS/CH - FORTALEZA</option>
+                                        <option value="657461">LETRAS/CH - FORTALEZA</option>
+                                        <option value="5242178">LICENCIATURA EM BIOLOGIA/CUFCCARIRI - BREJO SANTO
+                                        </option>
+                                        <option value="5242234">LICENCIATURA EM F&Iacute;SICA/CUFCCARIRI - BREJO SANTO
+                                        </option>
+                                        <option value="6491864">LICENCIATURA EM LETRAS - PORTUGU&Ecirc;S/IUVI -
+                                            FORTALEZA</option>
+                                        <option value="5242254">LICENCIATURA EM MATEM&Aacute;TICA/CUFCCARIRI - BREJO
+                                            SANTO</option>
+                                        <option value="5242261">LICENCIATURA EM QU&Iacute;MICA/CUFCCARIRI - BREJO SANTO
+                                        </option>
+                                        <option value="5244893">LICENCIATURA INTERCULTURAL IND&Iacute;GENA KUABA/CH -
+                                            FORTALEZA</option>
+                                        <option value="657519">LICENCIATURA INTERCULTURAL IND&Iacute;GENA PITAKAJA/CH -
+                                            FORTALEZA</option>
+                                        <option value="657500">MAGIST&Eacute;RIO IND&Iacute;GENA TREMEMB&Eacute;
+                                            SUPERIOR/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="657436">MATEM&Aacute;TICA - BACHARELADO/CC - FORTALEZA</option>
+                                        <option value="657433">MATEM&Aacute;TICA - LICENCIATURA/CC - FORTALEZA</option>
+                                        <option value="657522">MATEM&Aacute;TICA INDUSTRIAL/CC - FORTALEZA</option>
+                                        <option value="657434">MATEM&Aacute;TICA/CC - FORTALEZA</option>
+                                        <option value="6491863">MATEM&Aacute;TICA/IUVI - FORTALEZA</option>
+                                        <option value="657495">MEDICINA - BARBALHA/CUFCCARIRI - JUAZEIRO DO NORTE
+                                        </option>
+                                        <option value="657494">MEDICINA - SOBRAL/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="657470">MEDICINA/FACMED - FORTALEZA</option>
+                                        <option value="657512">MUSICA - LICENCIATURA/CUFCCARIRI - JUAZEIRO DO NORTE
+                                        </option>
+                                        <option value="657523">M&Uacute;SICA-LICENCIATURA/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="657465">M&Uacute;SICA/ICA - FORTALEZA</option>
+                                        <option value="657497">OCEANOGRAFIA/LABOMAR - FORTALEZA</option>
+                                        <option value="657486">ODONTOLOGIA/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="657456">ODONTOLOGIA/FFOE - FORTALEZA</option>
+                                        <option value="657468">PEDAGOGIA (DIURNO)/FACED - FORTALEZA</option>
+                                        <option value="657469">PEDAGOGIA (NOTURNO)/FACED - FORTALEZA</option>
+                                        <option value="657493">PEDAGOGIA DA TERRA / LICENCIATURA PLENA/PRG - FORTALEZA
+                                        </option>
+                                        <option value="6491869">PEDAGOGIA/IUVI - FORTALEZA</option>
+                                        <option value="4650139">PEDAGOGIA/PARFOR/FACED - FORTALEZA</option>
+                                        <option value="657487">PSICOLOGIA/CCGPSIC - SOBRAL/CUFCSOBRAL - SOBRAL</option>
+                                        <option value="657462">PSICOLOGIA/CH - FORTALEZA</option>
+                                        <option value="657437">QU&Iacute;MICA - BACHARELADO/CC - FORTALEZA</option>
+                                        <option value="657440">QU&Iacute;MICA - LICENCIATURA/CC - FORTALEZA</option>
+                                        <option value="657439">QU&Iacute;MICA INDUSTRIAL/CC - FORTALEZA</option>
+                                        <option value="657438">QU&Iacute;MICA/CC - FORTALEZA</option>
+                                        <option value="6491868">QU&Iacute;MICA/IUVI - FORTALEZA</option>
+                                        <option value="657516">REDES DE COMPUTADORES/DIRQUIXADA - QUIXAD&Aacute;
+                                        </option>
+                                        <option value="657453">SECRETARIADO EXECUTIVO/FEAAC - FORTALEZA</option>
+                                        <option value="72461701">SEGURAN&Ccedil;A DA INFORMA&Ccedil;&Atilde;O/CITAPAJE -
+                                            ITAPAJ&Eacute;</option>
+                                        <option value="2097205">SISTEMAS DE INFORMA&Ccedil;&Atilde;O/CCRATEUS -
+                                            CRATE&Uacute;S</option>
+                                        <option value="657496">SISTEMAS DE INFORMA&Ccedil;&Atilde;O/DIRQUIXADA -
+                                            QUIXAD&Aacute;</option>
+                                        <option value="657509" selected="selected">SISTEMAS E M&Iacute;DIAS DIGITAIS
+                                            (DIURNO)/IUVI - FORTALEZA</option>
+                                        <option value="3251521">SISTEMAS E M&Iacute;DIAS DIGITAIS (NOTURNO)/IUVI -
+                                            FORTALEZA</option>
+                                        <option value="657501">TEATRO - LICENCIATURA/ICA - FORTALEZA</option>
+                                        <option value="657481">TECNOLOGIA EM GEST&Atilde;O DA EDUCA&Ccedil;&Atilde;O
+                                            SUPERIOR/PRG - FORTALEZA</option>
+                                        <option value="1244886">TECNOLOGIA EM GEST&Atilde;O DA QUALIDADE/FEAAC -
+                                            FORTALEZA</option>
+                                        <option value="657482">TECNOLOGIA EM GEST&Atilde;O DE HOSPITAIS
+                                            UNIVERSIT&Aacute;RIOS/PRG - FORTALEZA</option>
+                                        <option value="657425">ZOOTECNIA/CCA - FORTALEZA</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th align="left" class="required">Per&#237;odo-Ano:</th>
+                                <td align="left" width="10%">
+                                    <input id="formTurma:inputAno" type="text" name="formTurma:inputAno" value="2023"
+                                        maxlength="4" onkeyup="return formatarInteiro(this,event);" size="4"
+                                        style="padding:1px;border-color:#888;" /> -
+                                </td>
+                                <td align="left">
+                                    <select id="formTurma:inputPeriodo" name="formTurma:inputPeriodo" size="1">
+                                        <option value="1">1</option>
+                                        <option value="2" selected="selected">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <input type="submit" name="formTurma:j_id_jsp_1410109113_18" value="Buscar" />
+                                    &nbsp;
+                                    <input type="submit" name="formTurma:j_id_jsp_1410109113_19" value="Cancelar" />
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+
+                    <br clear="all" />
+
+
+                    <div class="infoAltRem">
+                        <img src="/sigaa/img/view.gif" />
+                        :Visualizar detalhes da turma<br />
+                    </div>
+
+                    <div id="turmasAbertas">
+                        <table class="listagem" width="95%">
+                            <caption>40 turmas encontrada(s)</caption>
+                            <thead>
+                                <tr>
+                                    <td width="10%" style="text-align: center;">Ano Per&#237;odo</td>
+                                    <td width="5%"></td>
+                                    <td>Docente(s)</td>
+                                    <td width="18%">Hor&#225;rio</td>
+                                    <td style="text-align: right;">Mat./Cap.</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+
+                                        <script type="text/javascript"
+                                            language="Javascript">function dpf(f) { var adp = f.adp; if (adp != null) { for (var i = 0; i < adp.length; i++) { f.removeChild(adp[i]); } } }; function apf(f, pvp) { var adp = new Array(); f.adp = adp; var ps = pvp.split(','); for (var i = 0, ii = 0; i < ps.length; i++, ii++) { var p = document.createElement("input"); p.type = "hidden"; p.name = ps[i]; p.value = ps[i + 1]; f.appendChild(p); adp[ii] = p; i += 1; } }; function jsfcljs(f, pvp, t) { apf(f, pvp); var ft = f.target; if (t) { f.target = t; } f.submit(); f.target = ft; dpf(f); };</script>
+                                        <a id="formTurma:botaoVisualizarComponenteCurricular" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricular,formTurma:botaoVisualizarComponenteCurricular,id,14300,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0052 - PROGRAMA&#199;&#195;O PARA WEB
+                                                I</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472545);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>LEONARDO OLIVEIRA MOREIRA (64h)</td>
+                                    <td>SEX 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_1" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_1,formTurma:botaoVisualizarComponenteCurricularj_id_1,id,14304,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0056 - DIRE&#199;&#195;O DE ARTE PARA
+                                                MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472565);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>ANTONIO JOSE MELO LEITE JUNIOR (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_2" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_2,formTurma:botaoVisualizarComponenteCurricularj_id_2,id,15387,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0102 - METODOLOGIA DE PESQUISA
+                                                CIENT&#205;FICA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472836);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>RICARDO BRAUNER DOS SANTOS (64h)</td>
+                                    <td>SEX 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_3" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_3,formTurma:botaoVisualizarComponenteCurricularj_id_3,id,15683,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0107 - COGNI&#199;&#195;O E TECNOLOGIAS
+                                                DIGITAIS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472849);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>RAQUEL SANTIAGO FREIRE (64h)</td>
+                                    <td>SEG 14:00-16:00<br />SEX 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_4" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_4,formTurma:botaoVisualizarComponenteCurricularj_id_4,id,15388,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0103 - SEMIN&#193;RIOS EM
+                                                MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472838);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>MARIA DE FATIMA COSTA DE SOUZA (64h)</td>
+                                    <td>SEX 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_5" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_5,formTurma:botaoVisualizarComponenteCurricularj_id_5,id,13576,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0025 - &#201;TICA E POL&#205;TICA
+                                                AUTORAL</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472229);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>FERNANDO LINCOLN CARNEIRO LEAO MATTOS (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_6" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_6,formTurma:botaoVisualizarComponenteCurricularj_id_6,id,13857,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0039 - CULTURA DE JOGOS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472253);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>WELLINGTON WAGNER FERREIRA SARMENTO (64h)</td>
+                                    <td>SEG 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_7" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_7,formTurma:botaoVisualizarComponenteCurricularj_id_7,id,15373,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0090 - SEMI&#211;TICA APLICADA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472786);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_8" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_8,formTurma:botaoVisualizarComponenteCurricularj_id_8,id,13863,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0045 - LINGUAGEM DE PROGRAMA&#199;&#195;O
+                                                SCRIPT</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472255);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>RICARDO BRAUNER DOS SANTOS (64h)</td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_9" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_9,formTurma:botaoVisualizarComponenteCurricularj_id_9,id,14299,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0051 - REDA&#199;&#195;O PARA M&#205;DIAS
+                                                DIGITAIS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472529);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>ANDREA PINHEIRO PAIVA CAVALCANTE (64h)</td>
+                                    <td>SEG 08:00-12:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_10" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_10,formTurma:botaoVisualizarComponenteCurricularj_id_10,id,15382,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0098 - DESENHO II</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472827);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01
+
+                                        </a>
+                                    </td>
+                                    <td>LIANDRO ROGER MEMORIA MACHADO (64h)</td>
+                                    <td>SEG 14:00-16:00<br />QUA 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_11" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_11,formTurma:botaoVisualizarComponenteCurricularj_id_11,id,15376,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0093 - NARRATIVAS MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472811);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>GLAUDINEY MOREIRA MENDONCA JUNIOR (64h)</td>
+                                    <td>QUA 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/60 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_12" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_12,formTurma:botaoVisualizarComponenteCurricularj_id_12,id,15379,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0096 - PROGRAMA&#199;&#195;O II</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472820);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>HENRIQUE SERGIO LIMA PEQUENO (64h)</td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_13" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_13,formTurma:botaoVisualizarComponenteCurricularj_id_13,id,22346,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0129 - T&#201;CNICAS DE ANIMA&#199;&#195;O
+                                                2D</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472937);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>NEIL ARMSTRONG REZENDE (64h)</td>
+                                    <td>SEG 16:00-18:00<br />QUA 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_14" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_14,formTurma:botaoVisualizarComponenteCurricularj_id_14,id,12567,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0020 - PROTOTIPA&#199;AO DE JOGOS
+                                                TRIDIMENSIONAIS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(469841);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>ADRIANO ANUNCIACAO OLIVEIRA (64h)</td>
+                                    <td>TER 10:00-12:00<br />QUI 10:00-12:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_15" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_15,formTurma:botaoVisualizarComponenteCurricularj_id_15,id,13773,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0030 - AN&#193;LISE E PROJETO DE
+                                                SISTEMAS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(470082);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>TICIANA LINHARES COELHO DA SILVA (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_16" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_16,formTurma:botaoVisualizarComponenteCurricularj_id_16,id,13776,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0033 - ESTRUTURA DE DADOS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(470086);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>ERNESTO TRAJANO DE LIMA NETO (64h)</td>
+                                    <td>SEG 16:00-18:00<br />QUA 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_17" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_17,formTurma:botaoVisualizarComponenteCurricularj_id_17,id,12571,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0021 - GEST&#195;O DE NEGOCIOS EM
+                                                MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472228);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>HENRIQUE BARBOSA SILVA (64h)</td>
+                                    <td>SEX 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_18" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_18,formTurma:botaoVisualizarComponenteCurricularj_id_18,id,13778,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0035 - MATEM&#193;TICA E F&#205;SICA PARA
+                                                JOGOS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472239);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>JOSE GILVAN RODRIGUES MAIA (64h)</td>
+                                    <td>SEG 14:00-16:00<br />QUA 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_19" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_19,formTurma:botaoVisualizarComponenteCurricularj_id_19,id,13780,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0037 - REDES DE COMPUTADORES</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472248);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>WINDSON VIANA DE CARVALHO (64h)</td>
+                                    <td>SEG 14:00-16:00<br />QUA 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_20" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_20,formTurma:botaoVisualizarComponenteCurricularj_id_20,id,15348,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0083 - EDUCOMUNICA&#199;&#195;O</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472569);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>ANDREA PINHEIRO PAIVA CAVALCANTE (64h)</td>
+                                    <td>QUA 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_21" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_21,formTurma:botaoVisualizarComponenteCurricularj_id_21,id,15351,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0086 - FOTOGRAFIA DIGITAL</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472740);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>ADRIANO ANUNCIACAO OLIVEIRA (64h)</td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_22" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_22,formTurma:botaoVisualizarComponenteCurricularj_id_22,id,15349,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0084 - EXPERIMENTOS EM TIPOGRAFIA
+                                                DIGITAL</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472733);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>CARLOS EDUARDO BRITO NOVAIS (64h)</td>
+                                    <td>TER 10:00-12:00<br />SEX 10:00-12:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_23" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_23,formTurma:botaoVisualizarComponenteCurricularj_id_23,id,15385,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0100 - GEST&#195;O DE PROJETOS
+                                                MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472831);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>TICIANA LINHARES COELHO DA SILVA (64h)</td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_24" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_24,formTurma:botaoVisualizarComponenteCurricularj_id_24,id,17190,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0112 - INSTALA&#199;&#213;ES
+                                                MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472864);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>CLEMILSON COSTA DOS SANTOS (64h)</td>
+                                    <td>TER 10:00-12:00<br />QUI 10:00-12:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_25" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_25,formTurma:botaoVisualizarComponenteCurricularj_id_25,id,15681,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0105 - COMUNICA&#199;&#195;O VISUAL
+                                                I</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472840);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>INGA FREIRE SABOIA (64h)</td>
+                                    <td>SEG 16:00-18:00<br />SEX 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_26" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_26,formTurma:botaoVisualizarComponenteCurricularj_id_26,id,15682,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0106 - MATEM&#193;TICA APLICADA &#192;
+                                                MULTIM&#205;DIA I</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472844);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>MARA FRANKLIN BONATES (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_27" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_27,formTurma:botaoVisualizarComponenteCurricularj_id_27,id,18582,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0117 - INTERA&#199;&#195;O
+                                                HUMANO-COMPUTADOR II</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472916);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>TICIANNE DE GOIS RIBEIRO DARIN (64h)</td>
+                                    <td>SEG 14:00-16:00<br />QUA 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_28" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_28,formTurma:botaoVisualizarComponenteCurricularj_id_28,id,18584,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0119 - T&#211;PICOS AVAN&#199;ADOS EM
+                                                DESIGN DE INTERFACES GR&#193;FICAS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472922);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>INGA FREIRE SABOIA (64h)</td>
+                                    <td>SEG 10:00-12:00<br />SEX 10:00-12:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_29" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_29,formTurma:botaoVisualizarComponenteCurricularj_id_29,id,18904,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0122 - PROGRAMA&#199;&#195;O PARA
+                                                DISPOSITIVOS M&#211;VEIS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472926);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>WINDSON VIANA DE CARVALHO (64h)</td>
+                                    <td>SEG 16:00-18:00<br />QUA 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_30" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_30,formTurma:botaoVisualizarComponenteCurricularj_id_30,id,7808,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">HC0621 - MITOLOGIA GRECO-ROMANA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(469021);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 01A
+
+                                        </a>
+                                    </td>
+                                    <td>GLAUDINEY MOREIRA MENDONCA JUNIOR (64h)</td>
+                                    <td>SEX 18:00-22:00<br />(11/08/2023 - 08/12/2023)</td>
+                                    <td style="text-align: right;"> 0/36 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_31" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_31,formTurma:botaoVisualizarComponenteCurricularj_id_31,id,15683,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0107 - COGNI&#199;&#195;O E TECNOLOGIAS
+                                                DIGITAIS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472850);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02
+
+                                        </a>
+                                    </td>
+                                    <td>RAQUEL SANTIAGO FREIRE (64h)</td>
+                                    <td>SEG 16:00-18:00<br />SEX 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_32" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_32,formTurma:botaoVisualizarComponenteCurricularj_id_32,id,15387,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0102 - METODOLOGIA DE PESQUISA
+                                                CIENT&#205;FICA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472837);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02
+
+                                        </a>
+                                    </td>
+                                    <td>ROBSON CARLOS LOUREIRO (64h)</td>
+                                    <td>SEX 14:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_33" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_33,formTurma:botaoVisualizarComponenteCurricularj_id_33,id,13576,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0025 - &#201;TICA E POL&#205;TICA
+                                                AUTORAL</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472230);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02
+
+                                        </a>
+                                    </td>
+                                    <td>FERNANDO LINCOLN CARNEIRO LEAO MATTOS (64h)</td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_34" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_34,formTurma:botaoVisualizarComponenteCurricularj_id_34,id,15681,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0105 - COMUNICA&#199;&#195;O VISUAL
+                                                I</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472842);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02A
+
+                                        </a>
+                                    </td>
+                                    <td>INGA FREIRE SABOIA (64h)</td>
+                                    <td>SEG 14:00-16:00<br />SEX 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_35" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_35,formTurma:botaoVisualizarComponenteCurricularj_id_35,id,15385,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0100 - GEST&#195;O DE PROJETOS
+                                                MULTIM&#205;DIA</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472833);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02A
+
+                                        </a>
+                                    </td>
+                                    <td>EDGAR MARCAL DE BARROS FILHO (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_36" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_36,formTurma:botaoVisualizarComponenteCurricularj_id_36,id,15351,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0086 - FOTOGRAFIA DIGITAL</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472742);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02A
+
+                                        </a>
+                                    </td>
+                                    <td>ADRIANO ANUNCIACAO OLIVEIRA (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/35 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_37" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_37,formTurma:botaoVisualizarComponenteCurricularj_id_37,id,15682,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0106 - MATEM&#193;TICA APLICADA &#192;
+                                                MULTIM&#205;DIA I</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472846);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02A
+
+                                        </a>
+                                    </td>
+                                    <td>CLEMILSON COSTA DOS SANTOS (64h)</td>
+                                    <td>TER 16:00-18:00<br />QUI 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_38" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_38,formTurma:botaoVisualizarComponenteCurricularj_id_38,id,15379,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0096 - PROGRAMA&#199;&#195;O II</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaPar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(472822);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02A
+
+                                        </a>
+                                    </td>
+                                    <td>HENRIQUE SERGIO LIMA PEQUENO (64h)</td>
+                                    <td>TER 14:00-16:00<br />QUI 14:00-16:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+
+
+                                <tr class="agrupador">
+                                    <td colspan="6">
+                                        <a id="formTurma:botaoVisualizarComponenteCurricularj_id_39" href="#"
+                                            title="Visualizar Detalhes do Componente Curricular"
+                                            onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.forms['formTurma'],'formTurma:botaoVisualizarComponenteCurricularj_id_39,formTurma:botaoVisualizarComponenteCurricularj_id_39,id,13773,publico,public','');}return false"><img
+                                                src="/sigaa/img/view.gif" />
+
+
+
+                                            <span class="tituloDisciplina">SMD0030 - AN&#193;LISE E PROJETO DE
+                                                SISTEMAS</span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                                <tr class="linhaImpar">
+                                    <td style="text-align: center;">2023.2</td>
+                                    <td>
+                                        <a href="javascript:void(0);" onclick="PainelTurma.show(470084);"
+                                            title="Ver Detalhes dessa turma" style="font-weight: normal;"
+                                            id="botaoVisualizarTurma">
+                                            Turma 02A
+
+                                        </a>
+                                    </td>
+                                    <td>LEVI BAYDE RIBEIRO (64h)</td>
+                                    <td>SEG 16:00-18:00<br />QUA 16:00-18:00<br />(09/08/2023 - 09/12/2023)</td>
+                                    <td style="text-align: right;"> 0/30 alunos</td>
+                                </tr>
+
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" align="center"> <b>40 turmas encontrada(s) </b></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+
+                    <input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id5" />
+                </form>
+                <br clear="all" />
+                <center>
+                    <img src="/sigaa/img/required.gif" alt="Preenchimento obrigat&oacute;rio"
+                        style="vertical-align: top;" /> <span class="fontePequena"> Campos de preenchimento
+                        obrigat&#243;rio. </span>
+                </center>
+                <br>
+                <div style="width: 80%; text-align: center; margin: 0 auto;">
+                    <a href="/sigaa/public/home.jsf" style="color: #404E82;">
+                        << Voltar ao menu principal</a>
+                </div>
+                <br>
+
+                <div class="clear"></div>
+            </div>
+
+            <div id="rodape" accesskey="4">
+                <p> SIGAA | Copyright &copy; 2006-2023 - Superintend&#234;ncia de Tecnologia da Informa&#231;&#227;o -
+                    UFC - (85) 3366-9999 - si3asprd02.ufc.br</p>
+            </div>
+
+            <!-- Fim dos containers -->
+        </div>
+    </div>
+
+    <div id="mensagem">
+        <div class="x-window-header"></div>
+        <div class="x-window-body"></div>
+    </div>
+
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js" charset="UTF-8"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <!-- MYFACES JAVASCRIPT -->
+
+</body>
+
+</html>
